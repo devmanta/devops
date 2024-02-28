@@ -12,4 +12,9 @@ public class TestController {
         return ResponseEntity.ok("GOOD JOB !!!");
     }
 
+    @GetMapping("/gogo")
+    public ResponseEntity<String> gogo() {
+        return ResponseEntity.ok("KEEP GOING !!!");
+    }
+
 }
