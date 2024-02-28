@@ -5,8 +5,6 @@ on:
     branches:
       - master
 
-permissions: write-all
-
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -25,9 +23,3 @@ jobs:
 
       - name: Test with Gradle
         run: ./gradlew test
-
-      - name: Publish Unit Test Results
-        uses: EnricoMi/publish-unit-test-result-action@v1
-        if: ${{ always() }}
-        with:
-          files: build/test-results/**/*.xml
