@@ -1,0 +1,19 @@
+name: Kanban Trigger
+
+on:
+  project_card:
+    types:
+      - moved
+
+jobs:
+  kanban-trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check if card is in "Done" column
+        run: |
+          if [ "${{ github.event.project_card.column_name }}" == "Done" ]; then
+            echo "Card moved to Done column. Triggering workflow..."
+            # Add your workflow steps here
+          else
+            echo "Card moved to a different column. No action needed."
+          fi
